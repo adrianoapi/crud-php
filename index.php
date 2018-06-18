@@ -7,4 +7,17 @@ $db = new Conn("localhost", "crud_php", "root", "");
 $cliente    = new Cliente();
 $objCliente = new ServiceCliente($db, $cliente);
 
-Template::getCliente($objCliente->show());
+/*
+ * Add controller CRUD
+ */
+
+Template::header();
+
+if($_POST != NULL){
+    echo "POST";
+}else{
+    Template::getFormCliente();
+    Template::getCliente($objCliente->show());
+}
+
+Template::footer();
