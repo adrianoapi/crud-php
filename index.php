@@ -4,7 +4,7 @@ require_once 'Autoloader.php';
 require_once 'Helper.php';
 
 /**
- * Instanciamento de das classes
+ * Instanciamento de classes
  */
 $db         = new Conn("localhost", "crud_php", "root", "");
 $cliente    = new Cliente();
