@@ -42,6 +42,16 @@ class ServiceCliente
         return $this->db->lastInsertId();
     }
     
+    public function update()
+    {
+        $query = "UPDATE `clientes` SET `nome`=:nome, `email`=:email WHERE `id`=:id";
+        $stmt  = $this->db->prepare($query);
+        $stmt->bindValue(":id",    $this->cliente->getId());
+        $stmt->bindValue(":nome",  $this->cliente->getNome());
+        $stmt->bindValue(":email", $this->cliente->getEmail());
+        return $stmt->execute();
+    }
+    
     public function delete()
     {
         $query = "DELETE FROM `clientes` WHERE `id`=:id";

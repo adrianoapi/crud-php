@@ -1,7 +1,7 @@
 <script>
     jQuery(document).ready(function(){
         
-        // Cadastro
+        // Cadastrar
         jQuery('#frm_cadastro').submit(function(){
             
            document.getElementById('msg-erro').style.display = "none";
@@ -42,6 +42,7 @@
                     var obj = JSON.parse(data);
                     
                     if(obj['id'] > 0){
+                        document.getElementById("id"   ).value = obj['id'   ];
                         document.getElementById("nome" ).value = obj['nome' ];
                         document.getElementById("email").value = obj['email'];
                     }

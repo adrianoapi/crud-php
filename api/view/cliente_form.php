@@ -1,6 +1,7 @@
 <div class="col-lf-12">
     <form class="form" name="frm_cadastro" id="frm_cadastro" method="post" onsubmit="return false">
-        <input type="hidden" name="action" value="add_cliente">
+        <input type="hidden" name="action" value="save_cliente">
+        <input type="hidden" name="id" id="id" value="">
         <fieldset>
             <legend>Cliente Formulário:</legend>
             

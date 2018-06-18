@@ -16,11 +16,13 @@ $objCliente = new ServiceCliente($db, $cliente);
 
 if($_POST != NULL){
     
-    if(@$_POST['action'] == 'add_cliente'){
+    if(@$_POST['action'] == 'save_cliente'){
         
-        $cliente->setNome($_POST['nome'])
+        $cliente->setId   ($_POST['id'   ])
+                ->setNome ($_POST['nome' ])
                 ->setEmail($_POST['email']);
-        print $objCliente->save();
+        
+        print $_POST['id'] > 0 ? $objCliente->update() : $objCliente->save();
         
     }
     
