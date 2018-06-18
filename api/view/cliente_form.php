@@ -1,5 +1,5 @@
 <div class="col-lf-12">
-    <form class="form" name="frm_cadastro" id="frm_cadastro" method="post" action="?action=add_cliente" onsubmit="return false">
+    <form class="form" name="frm_cadastro" id="frm_cadastro" method="post" onsubmit="return false">
         <fieldset>
             <legend>Cliente Formulário:</legend>
             <div class="col-lg-4">

@@ -14,13 +14,16 @@ $objCliente = new ServiceCliente($db, $cliente);
  * Add controller CRUD
  */
 
-Template::header();
-
 if($_POST != NULL){
-    echo "POST";
+    
+    print_r($_POST);
+    
 }else{
+    
+    Template::header();
     Template::getFormCliente();
     Template::getCliente($objCliente->show());
+    Template::footer();
+    
 }
 
-Template::footer();
