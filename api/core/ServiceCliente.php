@@ -23,4 +23,14 @@ class ServiceCliente
         return $stmt->fetchall(\PDO::FETCH_ASSOC);
     }
     
+    public function save()
+    {
+        $query = "INSERT INTO `clientes` (`nome`, `email`) VALUES (:nome, :email)";
+        $stmt  = $this->db->prepare($query);
+        $stmt->bindValue(":nome",  $this->cliente->getNome());
+        $stmt->bindValue(":email", $this->cliente->getEmail());
+        $stmt->execute();
+        return $this->db->lastInsertId();
+    }
+    
 }

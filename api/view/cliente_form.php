@@ -3,6 +3,17 @@
         <input type="hidden" name="action" value="add_cliente">
         <fieldset>
             <legend>Cliente Formulário:</legend>
+            
+            <!--Mensagem de erro-->
+            <div id="msg-erro" class="col-lg-12 alert alert-danger" style="display: none;">
+                mensagem
+            </div>
+            
+            <!--Mensagem de sucesso-->
+            <div id="msg-success" class="col-lg-12 alert alert-success" style="display: none;">
+                Registro efetuado com sucesso!
+            </div>
+            
             <div class="col-lg-4">
                 nome:<br/>
                 <input class="col-lg-12" type="text" name="nome" id="nome" value="">
@@ -17,7 +28,4 @@
             </div>
         </fieldset>
     </form>
-</div>
-<div id="msg-erro" class="col-lg-12 alert alert-danger" style="display: none;">
-    mensagem
 </div>
