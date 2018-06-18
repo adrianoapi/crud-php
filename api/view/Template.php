@@ -3,9 +3,9 @@
 class Template
 {
     
-    public static function getCliente()
+    public static function getCliente(array $clientes)
     {
-        return file_get_contents(__DIR__.'/cliente_listagem.php');
+        return require __DIR__.'/cliente_listagem.php';
     }
 
 }
