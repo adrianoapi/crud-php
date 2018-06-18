@@ -22,6 +22,13 @@ if($_POST != NULL){
         print $objCliente->save();
     }
     
+    if(@$_POST['action'] == 'delete_cliente'){
+        $cliente->setId($_POST['id']);
+        print $objCliente->delete();
+    }
+    
+}else if($_GET != NULL){
+    echo "lista";
 }else{
     
     Template::header();

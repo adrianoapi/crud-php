@@ -1,6 +1,7 @@
 <script>
     jQuery(document).ready(function(){
         
+        // Cadastro
         jQuery('#frm_cadastro').submit(function(){
             
            document.getElementById('msg-erro').style.display = "none";
@@ -9,7 +10,7 @@
            var email = document.getElementById('email').value;
            var valid = form_validtaion(nome, email);
            
-           // Para a aplicação caso haja erro e retorna uma mensagem
+           // Para a aplicação caso haja erro
            if(valid.length > 0){
                document.getElementById('msg-erro').innerHTML     = valid.join('<br>');
                document.getElementById('msg-erro').style.display = "block";
@@ -20,13 +21,37 @@
                type: "POST",
                url:  "./",
                data: dados,
-               success: function (data){
+               success: function(data){
                    console.log(data);
                    document.getElementById("frm_cadastro").reset();
-                   document.getElementById('msg-success').style.display = "block";
+                   document.getElementById("msg-success" ).style.display = "block";
                }
            });
            
+        });
+        
+        // Editar
+        jQuery('.btnEdit').click(function(){
+            alert('oi' + this.id);
+        });
+        
+        // Excluir
+         jQuery('.btnDelete').click(function(){
+            
+            var rst = confirm("Deseja relamente excluir o item " + this.id + " ?");
+            if(rst == true){
+                
+                jQuery.ajax({
+                    type: "POST",
+                    url: "./",
+                    data: "action=delete_cliente&id=" + this.id,
+                    success: function(data){
+                        console.log(data);
+                    }
+                });
+                
+            }
+            
         });
         
     });

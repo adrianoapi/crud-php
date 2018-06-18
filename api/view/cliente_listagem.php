@@ -16,8 +16,8 @@
             <td><?= $cliente['nome' ] ?></td>
             <td><?= $cliente['email'] ?></td>
             <td>
-                <input type="button" class="btn btn-primary" id="<?= $cliente['id'] ?>" value="Editar">
-                <input type="button" class="btn btn-danger" value="Excluir">
+                <input type="button" class="btnEdit btn btn-primary " id="<?= $cliente['id'] ?>" value="Editar">
+                <input type="button" class="btnDelete btn btn-danger" id="<?= $cliente['id'] ?>" value="Excluir">
             </td>
         </tr>
     <?php endforeach;?>
