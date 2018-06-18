@@ -1,11 +1,11 @@
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <td>#</td>
-            <td>ID</td>
-            <td>NOME</td>
-            <td>EMAIL</td>
-            <td>ACAO</td>
+            <th>#</th>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>ACAO</th>
         </tr>
     </thead>
     <tbody>

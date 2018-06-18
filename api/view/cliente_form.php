@@ -26,6 +26,7 @@
             <div class="col-lg-4">
                 <br>
                 <input type="submit" class="btn btn-success" value="Salvar">
+                <input type="reset" class="btnClear btn btn-warning" value="Limpar">
             </div>
         </fieldset>
     </form>

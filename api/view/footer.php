@@ -71,6 +71,9 @@
             
         });
         
+        // Limpar
+        jQuery('.btnClear').click(function(){ document.getElementById("id").value = ""; });
+        
     });
 </script>
 </div>

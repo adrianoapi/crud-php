@@ -35,7 +35,7 @@ class Cliente implements ICliente
     
     public function setEmail($email)
     {
-        $this->email = $email;
+        $this->email = strtolower($email);
         return $this;
     }
     
