@@ -53,9 +53,11 @@
         });
         
         // Excluir
-         jQuery('.btnDelete').click(function(){
-            
+         jQuery('.btnDelete').click(function(item){
+             
+            var tr  = $(this).closest('tr');
             var rst = confirm("Deseja relamente excluir o item " + this.id + " ?");
+            
             if(rst == true){
                 
                 jQuery.ajax({
@@ -63,7 +65,13 @@
                     url:  "./",
                     data: "action=delete_cliente&id=" + this.id,
                     success: function(data){
-                        console.log(data);
+                        if(data > 0){
+                                tr.css("background-color","#FF0000");
+                                tr.css("color","#FFFFFF");
+                                tr.fadeOut(400, function(){
+                                    tr.remove();
+                                });
+                        }
                     }
                 });
                 

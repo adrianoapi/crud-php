@@ -1,11 +1,11 @@
-<table class="table table-bordered table-striped table-hover">
+<table id="lista_clientes" class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <th>#</th>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>EMAIL</th>
-            <th>ACAO</th>
+            <th class="col-lg-1">#</th>
+            <th class="col-lg-1">ID</th>
+            <th class="col-lg-5">NOME</th>
+            <th class="col-lg-3">EMAIL</th>
+            <th class="col-lg-2">ACAO</th>
         </tr>
     </thead>
     <tbody>

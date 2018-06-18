@@ -13,7 +13,7 @@ class Cliente implements ICliente
     
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = is_numeric($id) ? $id : 0;
         return $this;
     }
     

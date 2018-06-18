@@ -25,8 +25,8 @@
             </div>
             <div class="col-lg-4">
                 <br>
-                <input type="submit" class="btn btn-success" value="Salvar">
-                <input type="reset" class="btnClear btn btn-warning" value="Limpar">
+                <input type="submit" class="btn btn-default" value="Salvar">
+                <input type="reset" class="btnClear btn btn-default" value="Limpar">
             </div>
         </fieldset>
     </form>
