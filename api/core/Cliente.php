@@ -1,6 +1,6 @@
 <?php
 
-class Cliente
+class Cliente implements ICliente
 {
     private $id;
     private $nome;
