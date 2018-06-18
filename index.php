@@ -17,18 +17,25 @@ $objCliente = new ServiceCliente($db, $cliente);
 if($_POST != NULL){
     
     if(@$_POST['action'] == 'add_cliente'){
+        
         $cliente->setNome($_POST['nome'])
                 ->setEmail($_POST['email']);
         print $objCliente->save();
+        
     }
     
     if(@$_POST['action'] == 'delete_cliente'){
+        
         $cliente->setId($_POST['id']);
         print $objCliente->delete();
+        
     }
     
-}else if($_GET != NULL){
-    echo "lista";
+}elseif($_GET != NULL){
+    
+    $rst = $objCliente->find($_GET['id']);
+    echo json_encode($rst[0]);
+    
 }else{
     
     Template::header();

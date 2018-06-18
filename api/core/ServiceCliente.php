@@ -11,16 +11,25 @@ class ServiceCliente
         $this->cliente = $cliente;
     }
     
+    public function find(int $id)
+    {
+        $query = "SELECT * FROM `clientes` WHERE `id`=:id LIMIT 1";
+        $stmt  = $this->db->prepare($query);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    
     /**
      * Listar clientes
      * @return type
      */
     public function show()
     {
-        $query = "select * from `clientes`";
+        $query = "SELECT * FROM `clientes`";
         $stmt  = $this->db->prepare($query);
         $stmt->execute();
-        return $stmt->fetchall(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
     
     public function save()

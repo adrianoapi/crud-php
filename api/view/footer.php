@@ -32,7 +32,23 @@
         
         // Editar
         jQuery('.btnEdit').click(function(){
-            alert('oi' + this.id);
+            
+            jQuery.ajax({
+                type: "GET",
+                url:  "./",
+                data: "id=" + this.id,
+                success: function(data){
+                    
+                    var obj = JSON.parse(data);
+                    
+                    if(obj['id'] > 0){
+                        document.getElementById("nome" ).value = obj['nome' ];
+                        document.getElementById("email").value = obj['email'];
+                    }
+                    
+                }
+            });
+            
         });
         
         // Excluir
@@ -43,7 +59,7 @@
                 
                 jQuery.ajax({
                     type: "POST",
-                    url: "./",
+                    url:  "./",
                     data: "action=delete_cliente&id=" + this.id,
                     success: function(data){
                         console.log(data);
