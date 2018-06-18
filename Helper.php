@@ -4,6 +4,16 @@ class Helper
 {
     
     /**
+     * Acrescenta 0 quando for <= 9
+     * @param type $number
+     * @return type
+     */
+    public static function zero($number)
+    {
+        return $number <= 9 ? "0{$number}" : $number;
+    }
+    
+    /**
      * Converte data br em sql
      * @param type $name $value
      */
