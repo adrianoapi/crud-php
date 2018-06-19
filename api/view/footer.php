@@ -35,7 +35,7 @@
                        var email = obj['email'];
                        
                        // Incrementa uma nova linha na tabela
-                       $('<tr><td><input type="checkbox" name="cadastro[]"></td>' +
+                       $('<tr class="anim highlight"><td><input type="checkbox" name="cadastro[]"></td>' +
                            '<td>' + id    + '</td>' +
                            '<td><a href="javascript:void(0)" id="' + id + '" onClick="edit_row(this.id)">' + nome + '</a></td>' +
                            '<td>' + email + '</td>' +
@@ -43,7 +43,7 @@
                         .hide()
                         .prependTo('#lista_clientes > tbody')
                         .fadeIn("slow")
-                        .addClass('success');
+                        .addClass('normal');
                        
                        /* OLD
                        var table = document.getElementById("lista_clientes");

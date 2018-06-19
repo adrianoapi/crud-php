@@ -3,6 +3,7 @@
         <title>CRUD PHP</title>
         <link rel="stylesheet" href="_vendor/css/bootstrap.css" media="screen">
         <link rel="stylesheet" href="_vendor/css/custom.min.css">
+        <link rel="stylesheet" href="_vendor/css/style.css">
         <script src="_vendor/js/scripts.js"></script>
     </head>
     <body>
