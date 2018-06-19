@@ -22,67 +22,98 @@
                url:  "./",
                data: dados,
                success: function(data){
-                   console.log(data);
-                   document.getElementById("frm_cadastro").reset();
-                   document.getElementById("msg-success" ).style.display = "block";
+                   
+                   if(data.length > 1){
+                       
+                       var obj = JSON.parse(data);
+                       var id    = obj['id'   ];
+                       var nome  = obj['nome' ];
+                       var email = obj['email'];
+                       
+                       // Incrementa uma nova linha na tabela
+                       var table = document.getElementById("lista_clientes");
+                       var row   = table.insertRow(0);
+                       var cell1 = row.insertCell(0);
+                       var cell2 = row.insertCell(1);
+                       var cell3 = row.insertCell(2);
+                       var cell4 = row.insertCell(3);
+                       var cell5 = row.insertCell(4);
+                       
+                       cell1.innerHTML = '<input type="checkbox" name="cadastro[]">';
+                       cell2.innerHTML = id;
+                       cell3.innerHTML = nome;
+                       cell4.innerHTML = email;
+                       cell5.innerHTML = '' +
+                               '<input type="button" class="btnEdit btn btn-primary " id="' + id + '" onClick="edit_row(this.id)"     value="Editar"> ' +
+                               '<input type="button" class="btnDelete btn btn-danger" id="' + id + '" onClick="del_row(this.id,this)" value="Excluir">';
+                       
+                       // Emite mensagem de sucesso
+                       document.getElementById("frm_cadastro").reset();
+                       document.getElementById("msg-success" ).style.display = "block";
+                       
+                   }
+                   
                }
            });
            
         });
-        
-        // Editar
-        jQuery('.btnEdit').click(function(){
-            
+                
+    });
+    
+    // Limpar
+    function clear_form(){
+        document.getElementById("id").value = 0;
+    }
+    
+    
+    // Editar
+    function edit_row(id){
+
+        jQuery.ajax({
+            type: "GET",
+            url:  "./",
+            data: "id=" + id,
+            success: function(data){
+
+                var obj = JSON.parse(data);
+
+                if(obj['id'] > 0){
+                    document.getElementById("id"   ).value = obj['id'   ];
+                    document.getElementById("nome" ).value = obj['nome' ];
+                    document.getElementById("email").value = obj['email'];
+                }
+
+            }
+        });
+
+    }
+    
+    // Excluir
+    function del_row(id, element){
+
+        var tr  = $(element).closest('tr');
+        var rst = confirm("Deseja relamente excluir o item " + id + " ?");
+
+        if(rst == true){
+
             jQuery.ajax({
-                type: "GET",
+                type: "POST",
                 url:  "./",
-                data: "id=" + this.id,
+                data: "action=delete_cliente&id=" + id,
                 success: function(data){
-                    
-                    var obj = JSON.parse(data);
-                    
-                    if(obj['id'] > 0){
-                        document.getElementById("id"   ).value = obj['id'   ];
-                        document.getElementById("nome" ).value = obj['nome' ];
-                        document.getElementById("email").value = obj['email'];
+                    if(data > 0){
+                            tr.css("background-color", "#FF8080");
+                            tr.css("color", "#FFFFFF");
+                            tr.fadeOut(500, function(){
+                                tr.remove();
+                            });
                     }
-                    
                 }
             });
-            
-        });
-        
-        // Excluir
-         jQuery('.btnDelete').click(function(item){
-             
-            var tr  = $(this).closest('tr');
-            var rst = confirm("Deseja relamente excluir o item " + this.id + " ?");
-            
-            if(rst == true){
-                
-                jQuery.ajax({
-                    type: "POST",
-                    url:  "./",
-                    data: "action=delete_cliente&id=" + this.id,
-                    success: function(data){
-                        if(data > 0){
-                                tr.css("background-color","#FF0000");
-                                tr.css("color","#FFFFFF");
-                                tr.fadeOut(400, function(){
-                                    tr.remove();
-                                });
-                        }
-                    }
-                });
-                
-            }
-            
-        });
-        
-        // Limpar
-        jQuery('.btnClear').click(function(){ document.getElementById("id").value = ""; });
-        
-    });
+
+        }
+
+    }
 </script>
 </div>
     </body>

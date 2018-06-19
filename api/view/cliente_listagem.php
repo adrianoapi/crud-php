@@ -1,4 +1,4 @@
-<table id="lista_clientes" class="table table-bordered table-striped table-hover">
+<table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
             <th class="col-lg-1">#</th>
@@ -8,7 +8,7 @@
             <th class="col-lg-2">ACAO</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="lista_clientes">
     <?php foreach($clientes as $cliente): ?>
         <tr>
             <td><input type="checkbox" name="cadastro[]"></td>
@@ -16,8 +16,8 @@
             <td><?= $cliente['nome' ] ?></td>
             <td><?= $cliente['email'] ?></td>
             <td>
-                <input type="button" class="btnEdit btn btn-primary " id="<?= $cliente['id'] ?>" value="Editar">
-                <input type="button" class="btnDelete btn btn-danger" id="<?= $cliente['id'] ?>" value="Excluir">
+                <input type="button" class="btnEdit btn btn-primary " id="<?= $cliente['id'] ?>" value="Editar" onClick="edit_row(this.id)">
+                <input type="button" class="btnDelete btn btn-danger" id="<?= $cliente['id'] ?>" value="Excluir" onClick="del_row(this.id,this)">
             </td>
         </tr>
     <?php endforeach;?>

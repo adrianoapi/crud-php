@@ -22,7 +22,14 @@ if($_POST != NULL){
                 ->setNome ($_POST['nome' ])
                 ->setEmail($_POST['email']);
         
-        print $_POST['id'] > 0 ? $objCliente->update() : $objCliente->save();
+        if($_POST['id'] > 0){
+            print $objCliente->update();
+                    
+        }else{
+            $id  = $objCliente->save();
+            $rst = $objCliente->find($id);
+            print json_encode($rst[0]);
+        }
         
     }
     
