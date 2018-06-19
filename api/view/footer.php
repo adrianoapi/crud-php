@@ -1,3 +1,7 @@
+<script src="_vendor/js/jquery.min.js   "></script>
+<script src="_vendor/js/popper.min.js   "></script>
+<script src="_vendor/js/bootstrap.min.js"></script>
+<script src="_assets/js/custom.js       "></script>
 <script>
     jQuery(document).ready(function(){
         
@@ -31,6 +35,17 @@
                        var email = obj['email'];
                        
                        // Incrementa uma nova linha na tabela
+                       $('<tr><td><input type="checkbox" name="cadastro[]"></td>' +
+                           '<td>' + id    + '</td>' +
+                           '<td><a href="javascript:void(0)" id="' + id + '" onClick="edit_row(this.id)">' + nome + '</a></td>' +
+                           '<td>' + email + '</td>' +
+                           '<td><input type="button" class="btnDelete btn btn-danger" id="' + id + '" onClick="del_row(this.id,this)" value="Excluir"></td></tr>')
+                        .hide()
+                        .prependTo('#lista_clientes > tbody')
+                        .fadeIn("slow")
+                        .addClass('success');
+                       
+                       /* OLD
                        var table = document.getElementById("lista_clientes");
                        var row   = table.insertRow(0);
                        var cell1 = row.insertCell(0);
@@ -41,12 +56,11 @@
                        
                        cell1.innerHTML = '<input type="checkbox" name="cadastro[]">';
                        cell2.innerHTML = id;
-                       cell3.innerHTML = nome;
+                       cell3.innerHTML = '<a href="javascript:void(0)" id="' + id + '" onClick="edit_row(this.id)">' + nome + '</a>';
                        cell4.innerHTML = email;
-                       cell5.innerHTML = '' +
-                               '<input type="button" class="btnEdit btn btn-primary " id="' + id + '" onClick="edit_row(this.id)"     value="Editar"> ' +
-                               '<input type="button" class="btnDelete btn btn-danger" id="' + id + '" onClick="del_row(this.id,this)" value="Excluir">';
-                       
+                       cell5.innerHTML = '<input type="button" class="btn btn-danger" id="' + id + '" onClick="del_row(this.id,this)" value="Excluir">';
+                       */
+                          
                        // Emite mensagem de sucesso
                        document.getElementById("frm_cadastro").reset();
                        document.getElementById("msg-success" ).style.display = "block";
@@ -63,6 +77,8 @@
     // Limpar
     function clear_form(){
         document.getElementById("id").value = 0;
+        document.getElementById("msg-erro"   ).style.display = "none";
+        document.getElementById("msg-success").style.display = "none";
     }
     
     
