@@ -13,7 +13,7 @@
         <tr>
             <td><input type="checkbox" name="cadastro[]"></td>
             <td><?= $cliente['id'   ] ?></td>
-            <td><a href="#" id="<?= $cliente['id'] ?>" onClick="edit_row(this.id)"><?= $cliente['nome' ] ?></a></td>
+            <td><a href="#" id="<?= $cliente['id'] ?>" onClick="edit_row(this.id)" alt="clique alterar" title="clique alterar"><?= $cliente['nome' ] ?></a></td>
             <td><?= $cliente['email'] ?></td>
             <td>
                 <!--<input type="button" class="btn btn-primary " id="<?= $cliente['id'] ?>" value="E" onClick="edit_row(this.id)">-->

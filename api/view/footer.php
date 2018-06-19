@@ -37,7 +37,7 @@
                        // Incrementa uma nova linha na tabela
                        $('<tr class="anim highlight"><td><input type="checkbox" name="cadastro[]"></td>' +
                            '<td>' + id    + '</td>' +
-                           '<td><a href="javascript:void(0)" id="' + id + '" onClick="edit_row(this.id)">' + nome + '</a></td>' +
+                           '<td><a href="javascript:void(0)" id="' + id + '" onClick="edit_row(this.id)" alt="clique alterar" title="clique alterar">' + nome + '</a></td>' +
                            '<td>' + email + '</td>' +
                            '<td><input type="button" class="btnDelete btn btn-danger" id="' + id + '" onClick="del_row(this.id,this)" value="Excluir"></td></tr>')
                         .hide()
@@ -65,6 +65,8 @@
                        document.getElementById("frm_cadastro").reset();
                        document.getElementById("msg-success" ).style.display = "block";
                        
+                   }else{
+                       location.reload();
                    }
                    
                }
