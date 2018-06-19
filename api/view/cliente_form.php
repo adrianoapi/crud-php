@@ -26,7 +26,7 @@
             <div class="col-lg-4">
                 <br>
                 <input type="submit" class="btn btn-default" value="Salvar">
-                <input type="reset"  class="btn btn-default" value="Limpar" onclick="clear()">
+                <input type="reset"  class="btn btn-default" value="Limpar" onclick="clear_form()">
             </div>
         </fieldset>
     </form>
