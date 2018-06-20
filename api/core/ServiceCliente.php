@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Classe para manipulação de dados com o banco
+ */
 class ServiceCliente
 {
     private $db;
@@ -32,6 +35,10 @@ class ServiceCliente
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
     
+    /**
+     * Insere registro na tabela
+     * @return type
+     */
     public function save()
     {
         $query = "INSERT INTO `clientes` (`nome`, `email`) VALUES (:nome, :email)";
@@ -42,6 +49,10 @@ class ServiceCliente
         return $this->db->lastInsertId();
     }
     
+    /**
+     * Atualiza registro
+     * @return type
+     */
     public function update()
     {
         $query = "UPDATE `clientes` SET `nome`=:nome, `email`=:email WHERE `id`=:id";
@@ -52,6 +63,10 @@ class ServiceCliente
         return $stmt->execute();
     }
     
+    /**
+     * Exclui registro na tabela
+     * @return type
+     */
     public function delete()
     {
         $query = "DELETE FROM `clientes` WHERE `id`=:id";
