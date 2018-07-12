@@ -14,9 +14,9 @@ $objCliente = new ServiceCliente($db, $cliente);
  * Add controller CRUD
  */
 
-if($_POST != NULL){
+if(isset($_POST['action'] )){
     
-    if(@$_POST['action'] == 'save_cliente'){
+    if($_POST['action'] == 'save_cliente'){
         
         $cliente->setId   ($_POST['id'   ])
                 ->setNome ($_POST['nome' ])
@@ -33,7 +33,7 @@ if($_POST != NULL){
         
     }
     
-    if(@$_POST['action'] == 'delete_cliente'){
+    if($_POST['action'] == 'delete_cliente'){
         
         $cliente->setId($_POST['id']);
         print $objCliente->delete();
